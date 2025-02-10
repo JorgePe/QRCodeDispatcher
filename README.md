@@ -58,7 +58,9 @@ mantain my own server.
 I'm using PythonAywhere, it's free for small web apps but I needed to register for a paid license
 to get MQTT connectivity to the mosquitto broker.
 
-### The Middleare
+The file 'QRCodeDispatcher-WebApp.md' has more details about the web app component.
+
+### The Middleware
 
 I am using a LEGO MINDSTORMS EV3 with a USB 4-port USB hub to connect a Wi-Fi dongle and a Bluetooth
 5.0 dongle (a 4.0 version should also work, aslong as it supports BLE).
@@ -67,7 +69,12 @@ It has a microSD card with ev3dev installed. Will detail it latter.
 
 To keep it 'always on' I'm using a battery conected to a wall charger as an UPS.
 
+The file 'QRCodeDispatcher-EV3.md' has more details about the middleware component.
+
 ### The Edge
 
 Any LEGO Powered Up hub that supports Pybricks should work.
 I've used the City Hub and the Technic Hub.
+
+The file 'QRCodeDispatcher-hub.md' has more details about the edge component.
+T
