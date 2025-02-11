@@ -15,7 +15,7 @@ For example my animated OWL will have a QR Code near by
 that points to:
 
 ```
-https://cyber.pythonanywhere.com/publish?OWL
+https://myaccountname.pythonanywhere.com/publish?OWL
 ```
 
 So when someone uses that QR Code the web app just parses
@@ -65,12 +65,12 @@ mkdir templates
 Then on the PythonAnywhere dashboard we create a new web app:
 
 + Add a new web app
-- cyberx.pythonanywhere.com
+- myaccountname.pythonanywhere.com
 - Manual configuration
 - Python version: Python 3.10
 
 + Enter a path to a virtualenv if desired
-- /home/cyberx/qrcode
+- /home/myaccountname/qrcode
 
 Then we upload the required files:
 - 'app.py' to the main folder
@@ -82,7 +82,7 @@ and adding this lines at the flask part:
 
 ```
 import sys
-path = '/home/cyberx/app.py'
+path = '/home/myaccountname/app.py'
 if path not in sys.path:
    sys.path.append(path)
 
@@ -95,12 +95,15 @@ we can safely ignore it.
 To apply all these changes we need to press 'Reload'. After this our web app
 should be running at
 
-https://cyberx.pythonanyhwere.com/
+https://myaccountname.pythonanyhwere.com/
 
 and we can publish a message using this URL:
 
-https://cyberx.pythonanyhwere.com/publish?OWL
+https://myaccountname.pythonanyhwere.com/publish?OWL
 
-You can use any MQTT client like MQTT Explorer to subscribe and confirm that
-the messages are being published.
-a
+You can use any MQTT client like MQTT Explorer to subscribe to the chosen
+topic (i.e. '/QRCodeDispatcher/message') and confirm that the messages are
+being published.
+
+You can also use any MQTT client to publish to the same topic so you can
+test your middleware even if you don't have the web app frontend available.
