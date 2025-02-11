@@ -54,7 +54,7 @@ For now I'm just running the script manually. I intend to later
 explain hot to configure a daemon that executes it everyime
 the EV3 boots up.
 
-## The Pybricks broadcas message format
+## The Pybricks broadcast message format
 
 I followed the format [documented](https://github.com/pybricks/technical-info/blob/master/pybricks-ble-broadcast-observe.md)
 by the Pybricks project.
