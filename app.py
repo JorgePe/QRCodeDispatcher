@@ -6,6 +6,22 @@ app = Flask(__name__)
 mqtt_broker = 'test.mosquitto.org'
 mqtt_topic = '/QRCodeDispatcher/message'
 
+list_of_messages = [
+    ('ALL', 'Todos'),
+    ('ORN', 'Ornitoptero'),
+    ('OWL', 'Coruja'),
+    ('PHO', 'Fénix'),
+    ('DRA', 'Dragão'),
+    ('ORR', 'Planetário')
+]
+
+@app.route('/')
+@app.route('/home')
+def index():
+    # renders a short web page
+    return render_template('index.html', data = list_of_messages)
+
+
 @app.route('/publish')
 def publish():
     # extracts a msg from the called URL
@@ -13,13 +29,7 @@ def publish():
     # and forwards it to a MQTT broker
     mqttpub.single(mqtt_topic, msg, hostname=mqtt_broker)
     # then redirects visitor to a page that informs what was done
-    return render_template('message.html', msg = 'Command sent to ' + msg)
-
-@app.route('/')
-@app.route('/home')
-def index():
-    # renders a short web page
-    return render_template('index.html')
+    return render_template('message.html', msg = 'Comando enviado para ' + msg)
 
 
 if __name__ == '__main__':
