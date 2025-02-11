@@ -28,9 +28,8 @@ the models being shown:
 
 Just for convenience the main page ('index.html') also
 shows a list of all models available to control so
-one can use a convencional browser instead. This page
-can also be extended with aditional information about
-each model (like a photo or a video).
+one can use a convencional browser instead jut by following
+the available links.
 
 # Implementation
 
