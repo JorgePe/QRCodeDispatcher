@@ -15,16 +15,16 @@ import paho.mqtt.client as mqtt
 import subprocess
 from time import sleep
 
-mqtt_broker = "test.mosquitto.org"  # public mosquitto broker - WARNING: not secure, no SLA's
-mqtt_topic = "/plug/teste"          # topic  used communication between the web app and the dispatcher
-mqtt_port = 1883                    # default port = 1883
-mqtt_keepalive = 60                 # default keepalive time between client and broker = 60 seconds
+mqtt_broker = "test.mosquitto.org"                # public mosquitto broker - WARNING: not secure, no SLA's
+mqtt_topic = "/QRCodeDispatcher/message"          # topic used for communication between the web app and the dispatcher
+mqtt_port = 1883                                  # default port = 1883
+mqtt_keepalive = 60                               # default keepalive time between client and broker = 60 seconds
 
-hcidev = "hci1"                     # hci0 or hci1, needs to be properly checked at initialization
+hcidev = "hci1"                                   # hci0 or hci1, needs to be properly checked at initialization
 
-broadcast_duration = 0.20           # duration in seconds of the broadcasting
-                                    # 0.10 was too short, 0.15 seems to work but sometimes
-                                    # the LEGO hub doesn'r receive it (specially with City Hubs)
+broadcast_duration = 0.20                         # duration in seconds of the broadcasting
+                                                  # 0.10 was too short, 0.15 seems to work but sometimes
+                                                  # the LEGO hub doesn'r receive it (specially with City Hubs)
 
 
 # messages accepted
