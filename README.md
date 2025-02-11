@@ -47,6 +47,14 @@ A somewhat more complex scenario with 5 models and 2 hubs:
 
 [![LEGO QR Code Dispatcher and 5 motorizes sets](http://img.youtube.com/vi/DmP8MC4a8qc/0.jpg)](http://www.youtube.com/watch?v=DmP8MC4a8qc "LEGO QR Code Dispatcher and 5 motorizes sets")
 
+in this scenario I have a QR Code for each of the models and 
+an extra QR Code, a wildcard command. Both hubs react to each
+single model command and also to the wildcard command so
+it is possible (not exactly desired) to activate all models
+at once.
+
+Other codes can be implemented, like a code to activate all
+"birds" and a code to activate all "machines".
 
 ## Implementation
 
