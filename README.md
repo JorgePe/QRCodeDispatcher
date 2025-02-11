@@ -35,7 +35,7 @@ A simple scenario with just one model connected to a Technic Hub:
 In this PoC I'm using just one model with just one motor so not making
 any use of the remaining 3 ports of the Technic Hub. With just minor
 adaptions in the code running in the Hub it is possible to extend it
-to 4 one-motor models ou 1 four-motor model or any combination in
+to 4 one-motor models or 1 four-motor model or any combination in
 between.
 
 A somewhat more complex scenario with 5 models and 2 hubs:
