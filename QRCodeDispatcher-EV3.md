@@ -54,6 +54,32 @@ For now I'm just running the script manually. I intend to later
 explain hot to configure a daemon that executes it everyime
 the EV3 boots up.
 
+## The Pybricks broadcas message format
+
+I followed the format [documented](https://github.com/pybricks/technical-info/blob/master/pybricks-ble-broadcast-observe.md)
+by the Pybricks project.
+
+To keep it simple, I'm using a single object of type STR and length 4.
+So I prepare this hcitool message:
+
+```
+hci1 cmd 0x08 0x0008 0B 0A FF 97 03 01 00 A4 XX XX XX XX 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+```
+
+and if I want to send 'OWL1' I convert it to a string with its
+hexadecimal representation:
+
+```
+4F 52 4E 31
+```
+
+and insert each of the four pairs text in the above XX positions:
+
+```
+hci1 cmd 0x08 0x0008 0B 0A FF 97 03 01 00 A4 4F 52 4E 31 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+```
+
+
 ## The Code
 
 This is the script I'm using with the MINDSTORMS EV3:
