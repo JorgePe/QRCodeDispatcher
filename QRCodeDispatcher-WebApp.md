@@ -1,1 +1,100 @@
-# QRCode Dispatcher - The Web App
+# QRCode Dispatcher - The Frontend Component
+
+# Intro
+
+This implements a web app to be hosted in a public site.
+
+Visitors that want to see activate one of my models
+will point their smartphone or tablet to a QR Code that
+points to a URL served by this app.
+
+When this URL is reached the web app publishes a message
+on a public MQTT broker.
+
+For example my animated OWL will have a QR Code near by
+that points to:
+
+```
+https://cyber.pythonanywhere.com/publish?OWL
+```
+
+So when someone uses that QR Code the web app just parses
+the 'OWL' value and publishes a MQTT message with
+'OWL' as payload and then redirects the visitor
+for the main page where it can find some information about
+the models being shown.
+
+# Implementation
+
+I'm using PythonAnywhere.com to host my web app.
+It's a very small app made in flask, a python-based
+web server.
+
+First we creat a python virtual environment:
+
+```
+python3 --version
+Python 3.10.5
+
+python3 -m venv qrcode/
+source qrcode/bin/activate
+(qrcode) ~ $
+```
+
+then we install the required libraries ('flask' for the
+web server and 'paho-mqtt' for message queing communications)
+
+```
+pip install flask
+pip install paho-mqtt
+```
+
+We also need to create a folder for the html files rendered by the
+web app:
+
+```
+mkdir templates
+```
+
+Then on the PythonAnywhere dashboard we create a new web app:
+
++ Add a new web app
+- cyberx.pythonanywhere.com
+- Manual configuration
+- Python version: Python 3.10
+
++ Enter a path to a virtualenv if desired
+- /home/cyberx/qrcode
+
+Then we upload the required files:
+- 'app.py' to the main folder
+- 'index.html' and 'aviso.html' to the 'temlates' folder
+
+And finally we edit the WSGI configuration file, 
+deleting the HELLO WORLD part at the beggining of the fileno inicio
+and adding this lines at the flask part:
+
+```
+import sys
+path = '/home/cyberx/app.py'
+if path not in sys.path:
+   sys.path.append(path)
+
+from app import app as application
+```
+
+When saving this file a yellow triangle will appear at the list line edited,
+we can safely ignore it.
+
+To apply all these changes we need to press 'Reload'. After this our web app
+should be running at
+
+https://cyberx.pythonanyhwere.com/
+
+and we can publish a message using this URL:
+
+https://cyberx.pythonanyhwere.com/publish?OWL
+
+You can use any MQTT client like MQTT Explorer to subscribe and confirm that
+the messages are being published.
+am
