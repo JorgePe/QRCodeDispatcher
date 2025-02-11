@@ -24,6 +24,12 @@ the 'OWL' value and publishes a MQTT message with
 for the main page where it can find some information about
 the models being shown.
 
+Just for convenience the main page ('index.html') also
+shows a list of all models available to control so
+one can use a convencional browser instead. This page
+can also be extended with aditional information about
+each model (like a photo or a video).
+
 # Implementation
 
 I'm using PythonAnywhere.com to host my web app.
@@ -68,7 +74,7 @@ Then on the PythonAnywhere dashboard we create a new web app:
 
 Then we upload the required files:
 - 'app.py' to the main folder
-- 'index.html' and 'aviso.html' to the 'temlates' folder
+- 'index.html' and 'message.html' to the 'templates' folder
 
 And finally we edit the WSGI configuration file, 
 deleting the HELLO WORLD part at the beggining of the fileno inicio
@@ -83,7 +89,7 @@ if path not in sys.path:
 from app import app as application
 ```
 
-When saving this file a yellow triangle will appear at the list line edited,
+When saving this file a yellow triangle will appear at the line edited,
 we can safely ignore it.
 
 To apply all these changes we need to press 'Reload'. After this our web app
@@ -97,4 +103,4 @@ https://cyberx.pythonanyhwere.com/publish?OWL
 
 You can use any MQTT client like MQTT Explorer to subscribe and confirm that
 the messages are being published.
-am
+a
