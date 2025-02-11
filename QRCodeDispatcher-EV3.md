@@ -29,14 +29,15 @@ To use 'hcitool' to advertise BLE messages in the
 Pybricks format I created 4 functions:
  
 - prepare_ble_advertise()
-- define_ble_advertise(msg)
+- define_ble_advertise()
 - initiate_ble_advertise()            
 - stop_ble_advertise()
 
 Three of them do not require arguments, they just execute some
-pre-defined BLE commands in order to control the advertisement.
+pre-defined HCI commands in order to control the BLE
+advertisements.
 
-The fourth function ('initiate_ble_advertise') expects a
+The fourth function ('initiate_ble_advertise()') expects a
 4-char string that will be converted to hexacedimal notation
 to be embedded in a pre-defined BLE command.
 
