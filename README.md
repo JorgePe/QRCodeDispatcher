@@ -1,5 +1,5 @@
 # QRCodeDispatcher
-A python based solution to control LEGO models through QR Codes
+A python based solution to control my LEGO models through QR Codes
 
 ## Intro
 
@@ -8,36 +8,56 @@ self control some of my LEGO models in a easy way.
 
 Some years ago I made a motorized version of the LEGO Hedwig owl and
 managed to control it by sending an e-mail but it required a python
-script to be running on my laptop near and sending an e-mail is not
-so easy for a visitor
+script to be running on my laptop nearby and sending an e-mail is not
+so easy for a visitor.
+
+By then it also required a permanent BLE connection between my laptop
+and the model which was not pratical and didn't scale up well if
+I wanted to control more models.
 
 So now I am using QR Codes: each model has a QR Code near it,
 if the visitor wants to see it move just needs to point its
 smartphone or tablet to the QR Code.
 
+And I am also using the new Pybricks messaging protocol that allows
+broadcasting short BLE messages to or/and from several hubs without
+requiring a session. And since several devices can use this method,
+a laptop is not needed (even a Raspberry Pi Pico W or a ESP-32 can
+be used).
+
 ## Implementation
 
-My solution has 3 components:
+My solution has 3 major components:
 - a frontend python web app running on a public web server
 - a middleware python script running on a MINDSTORMS EV3 (or a Raspbberry Pi)
 - a edge micropython script running on each of my LEGO models
 
-The frontend web app just serves the links used by the QR Codes and
-each time a link is reached it sends a MQTT message.
+### The frontend
 
-The middleware script keeps waiting for the proper MQTT messages to
-arrive and generates a Bluetooth Low Energy advertisement using
-Pybricks broadcast messaging format with a simple 4-char payload:
+It's just a small web app that serves the links used by the QR Codes
+and each time a link is reached it publishes (sends) a MQTT message.
 
-+ the first 3 chars specify which model(s) should be
-addressed
-+ the last char specifies the action to execute
+I call it a frontend because it just makes it easy to use MQTT -
+any MQTT client can be used to publish a message and surpass the
+frontend. Also several clients can be used "simultaneously".
 
-The edge micropython script is just a Pybricks script that
-waits for a broadcast message to arrive, checks if it has the
-proper payload and executes a pre-definied action (usually a 
-very simple action, like flapping the wings for a couple of
-seconds)
+### The middleware
+
+It's also a simple python script that keeps waiting for the proper
+MQTT messages to arrive and generates a short duration BLE
+advertisement using Pybricks broadcast messaging format.
+
+It advertises a short string that identifies
+the model(s) to be reached and the action to be executed and after
+a very short period - just enough to ensure the model(s) noticed it -
+it stops advertising.
+
+### The edge
+
+It's an even simpler micropython script that waits for a BLE
+advertisement to be made, checks if its addressed to this model
+and executes a pre-definied action (tipically a very simple action,
+like flapping the wings for a couple of seconds)
 
 ## Proof of concept
 
