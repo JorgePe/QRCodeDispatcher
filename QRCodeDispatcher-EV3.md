@@ -54,6 +54,30 @@ For now I'm just running the script manually. I intend to later
 explain hot to configure a daemon that executes it everyime
 the EV3 boots up.
 
+## The ev3dev installation
+
+I'm using [ev3dev linux](https://www.ev3dev.org/). It's a linux
+distribution made for the LEGO MINDSTORMS EV3 (but a version
+for the raspberry Pi is also available).
+
+Besides configuring Wi-Fi and activating Bluetooth I just
+add to install the python paho-mqtt library
+
+```
+pip installl paho-mqtt
+```
+
+If you decide to use a Raspberry Pi or other kind of device
+you will need to use a proper linux distro (Raspbian is
+good enough) that includes bluetooth support (the
+BlueZ stack) and python. Of course, Wi-Fi and Bluetooth
+Low Energy are needed (the Raspberry Pi 4 and 5 and the W
+versions of the Raspberry Pi Zero should work).
+
+If using Raspberry Pi Pico or ESP-32 there is no operating
+system so you will need to write your own dispatcher
+using MQTT and BLE libraries.
+
 ## The Pybricks broadcast message format
 
 I followed the format [documented](https://github.com/pybricks/technical-info/blob/master/pybricks-ble-broadcast-observe.md)
