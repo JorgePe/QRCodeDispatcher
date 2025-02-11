@@ -99,7 +99,7 @@ it stops advertising.
 
 I am using a LEGO MINDSTORMS EV3 but the script can be used on
 a Raspberry Pi board or a computer running linux. No BLE library
-is needed aslong as the linux has the BlueZ stack with the 'hcitool'
+is needed as long as the linux has the BlueZ stack with the 'hcitool'
 command.
 
 The EV3 boots from a microSD card with [ev3dev linux](https://www.ev3dev.org/)
@@ -111,7 +111,7 @@ USB dongles:
 - a BT BLE adapter
 
 The BT BLE adapter is an Asus USB-BT500, it support BT 5.0 specs but a
-4.0 version should also work, aslong as it supports BLE.
+4.0 version should also work, as long as it supports BLE.
 
 No drivers were needed - ev3dev recognizes both devices.
 
@@ -136,7 +136,7 @@ and executes a pre-definied action (tipically a very simple action,
 like flapping the wings for a couple of seconds)
 
 Any LEGO Powered Up hub that supports [Pybricks](https://pybricks.com/)
-should work (technically even non LEGO devices should work, aslong as they
+should work (technically even non LEGO devices should work, as long as they
 understand the
 [Pybricks broadcast messaging format](https://github.com/pybricks/technical-info/blob/master/pybricks-ble-broadcast-observe.md)).
 
