@@ -4,7 +4,7 @@ import paho.mqtt.publish as mqttpub
 app = Flask(__name__)
 
 mqtt_broker = 'test.mosquitto.org'
-mqtt_topic = '/plug/teste'
+mqtt_topic = '/QRCodeDispatcher/message'
 
 @app.route('/publish')
 def publish():
@@ -13,7 +13,7 @@ def publish():
     # and forwards it to a MQTT broker
     mqttpub.single(mqtt_topic, msg, hostname=mqtt_broker)
     # then redirects visitor to a page that informs what was done
-    return render_template('message.html', msg = 'Comando enviado para ' + msg)
+    return render_template('message.html', msg = 'Command sent to ' + msg)
 
 @app.route('/')
 @app.route('/home')
