@@ -37,6 +37,16 @@ adaptions in the code running in the Hub it is possible to extend it
 to 4 one-motor models ou 1 four-motor model or any combination in
 between.
 
+A somewhat more complex scenario with 5 models and 2 hubs:
+- a City Hub dedicated to the Harry Potter' Hedwig the Owl
+- a Technic Hub shared by 4 one-motor models:
+  - the Leonardo da Vincy Flying Machine
+  - the Harry Potter Fawkes, Dumbledore’s Phoenix
+  - the Harry Potter Hungarian HorntailDragon
+  - the Technic Orrery
+
+[![LEGO QR Code Dispatcher and 5 motorizes sets](http://img.youtube.com/vi/DmP8MC4a8qc/0.jpg)](http://www.youtube.com/watch?v=DmP8MC4a8qc "LEGO QR Code Dispatcher and 5 motorizes sets")
+
 
 ## Implementation
 
