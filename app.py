@@ -13,7 +13,7 @@ def publish():
     # and forwards it to a MQTT broker
     mqttpub.single(mqtt_topic, msg, hostname=mqtt_broker)
     # then redirects visitor to a page that informs what was done
-    return render_template('aviso.html', msg = 'Comando enviado para ' + msg)
+    return render_template('message.html', msg = 'Comando enviado para ' + msg)
 
 @app.route('/')
 @app.route('/home')
