@@ -19,11 +19,12 @@ So now I am using QR Codes: each model has a QR Code near it,
 if the visitor wants to see it move just needs to point its
 smartphone or tablet to the QR Code.
 
-And I am also using the new Pybricks messaging protocol that allows
-broadcasting short BLE messages to or/and from several hubs without
-requiring a session. And since several devices can use this method,
-a laptop is not needed (even a Raspberry Pi Pico W or a ESP-32 can
-be used).
+And I am also using the new
+[Pybricks messaging protocol](https://github.com/pybricks/technical-info/blob/master/pybricks-ble-broadcast-observe.md)
+that allows broadcasting short BLE messages to or/and from several
+hubs without requiring a session. And since several devices can use
+this method, a laptop is not needed (even a Raspberry Pi Pico W or a
+ESP-32 can be used).
 
 ## Proof of concept
 
@@ -101,7 +102,8 @@ a Raspberry Pi board or a computer running linux. No BLE library
 is needed aslong as the linux has the BlueZ stack with the 'hcitool'
 command.
 
-The EV3 boots from a microSD card with ev3dev linux installed.
+The EV3 boots from a microSD card with [ev3dev linux](https://www.ev3dev.org/)
+installed.
 
 For the EV3 communications I use a small USB 4-port USB hub and 2
 USB dongles:
@@ -133,9 +135,10 @@ advertisement to be made, checks if its addressed to this model
 and executes a pre-definied action (tipically a very simple action,
 like flapping the wings for a couple of seconds)
 
-Any LEGO Powered Up hub that supports Pybricks should work (technically
-even non LEGO devices should work, aslong as they understand the
-Pybricks broadcast messaging format).
+Any LEGO Powered Up hub that supports [Pybricks](https://pybricks.com/)
+should work (technically even non LEGO devices should work, aslong as they
+understand the
+[Pybricks broadcast messaging format](https://github.com/pybricks/technical-info/blob/master/pybricks-ble-broadcast-observe.md)).
 
 I've used the City Hub and the Technic Hub.
 
