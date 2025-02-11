@@ -95,11 +95,15 @@ we can safely ignore it.
 To apply all these changes we need to press 'Reload'. After this our web app
 should be running at
 
+```
 https://myaccountname.pythonanyhwere.com/
+```
 
 and we can publish a message using this URL:
 
+```
 https://myaccountname.pythonanyhwere.com/publish?OWL
+```
 
 You can use any MQTT client like MQTT Explorer to subscribe to the chosen
 topic (i.e. '/QRCodeDispatcher/message') and confirm that the messages are
