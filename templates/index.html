@@ -9,9 +9,18 @@
   <body>
     <div class="w3-container w3-twothird">
 
-      <h1 class="w3-center">QR COde Dispatcher</h1>       
+      <h1 class="w3-center">QR Code Dispatcher</h1>       
       
       <div class="w3-container">
+        <table class="w3-table w3-border" >
+          <tr class="w3-border w3-topbar w3-bottombar w3-blue w3-border-blue">
+            <th>Modelos LEGO disponíveis:</th>
+          </tr>
+          {%for msg,name in data%}
+            <tr class="w3-border">
+              <td><a href="/publish?msg={{msg}}"">{{name}}</a></td>
+            </tr>
+          {%endfor%} 
       </div>
     
       <footer class="w3-container w3-center" style="font-size: 75%;">
