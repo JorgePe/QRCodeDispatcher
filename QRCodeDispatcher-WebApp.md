@@ -21,8 +21,10 @@ https://myaccountname.pythonanywhere.com/publish?OWL
 So when someone uses that QR Code the web app just parses
 the 'OWL' value and publishes a MQTT message with
 'OWL' as payload and then redirects the visitor
-for the main page where it can find some information about
-the models being shown.
+to the main page where it can find some information about
+the models being shown:
+
+![Main Page](main_page.png)
 
 Just for convenience the main page ('index.html') also
 shows a list of all models available to control so
